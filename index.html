@@ -406,14 +406,14 @@ async function boardScreen() {
       <li class="${i === 0 ? "first" : ""}">
         <div class="rank">${medals[i] || i + 1}</div>
         <div><div class="team-name">${esc(t.name)}</div>
-          <div class="team-detail">${fmtPlain(rawMs(t))} maze − ${secs(t.bonus_seconds)} bonus · ${t.found}/${data.total_bonus} stickers</div></div>
+          <div class="team-detail">${t.found}/${data.total_bonus} bonus stickers</div></div>
         <div class="team-time">${fmtPlain(finalMs(t))}</div>
       </li>`).join("") : `<li class="empty" style="display:block">No one has finished yet</li>`;
     document.getElementById("running").innerHTML = running.length ? running.map(t => `
       <li>
         <div class="rank">🏃</div>
         <div><div class="team-name">${esc(t.name)}</div>
-          <div class="team-detail">${t.found}/${data.total_bonus} stickers · −${secs(t.bonus_seconds)}</div></div>
+          <div class="team-detail">${t.found}/${data.total_bonus} bonus stickers</div></div>
         <div class="team-time">${fmtPlain(rawMs(t))}</div>
       </li>`).join("") : `<li class="empty" style="display:block">Nobody in the maze</li>`;
   }
